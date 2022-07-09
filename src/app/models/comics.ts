@@ -1,6 +1,6 @@
 export interface Comics {
     id: number;
-    title: String;
+    title: string;
     thumbnail: string;
     linkDetalhe: string;
 
