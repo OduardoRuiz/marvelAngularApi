@@ -1,0 +1,14 @@
+.imgCard{ 
+    max-width: 100%;
+    max-height: 50%;
+
+}
+.cardContent{ 
+    width: 18rem;
+ 
+}
+.card-body{
+    min-width: none;
+    min-height: 10px;
+
+}
