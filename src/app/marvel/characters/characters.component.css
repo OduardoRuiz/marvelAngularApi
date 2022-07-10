@@ -12,3 +12,10 @@
     min-height: 10px;
 
 }
+body{ 
+    
+    margin: 0;
+    background-image: url("src\app\img\hq.png");
+   
+
+}

@@ -7,10 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './marvel/index/index.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharactersComponent } from './marvel/characters/characters.component';
 import { FavoriteComicComponent } from './marvel/favorite-comic/favorite-comic.component';
 import { FavoriteCharacterComponent } from './marvel/favorite-character/favorite-character.component';
+
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FavoriteCharacterComponent } from './marvel/favorite-character/favorite
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
     
   ],
   providers: [],

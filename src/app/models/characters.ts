@@ -1,6 +1,6 @@
 export interface Characters {
     id: number;
     name: string;
-    thumbnail: string;
+    thumbnail:  string;
     linkDetalhe: string;
 }

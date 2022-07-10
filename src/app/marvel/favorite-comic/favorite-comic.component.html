@@ -10,41 +10,47 @@
 
 <body>
 
+    <div class="d-flex justify-content-center">
+        <div class="m-5 justify-content-center  rounded-1  d-flex bg-light  " style="width: 30%;">
+            <img class="mb-3 img-fluid"
+                src="https://see.fontimg.com/api/renderfont4/nRvd4/eyJyIjoiZnMiLCJoIjo0MywidyI6MTAwMCwiZnMiOjQzLCJmZ2MiOiIjRDgxQzFDIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/TXkgZmF2b3JpdGUgQ29taWNz/avengero-disassembled-regular.png"
+                alt="My favorite Comics list">
+        </div>
+    </div>
     <section class="container">
-     
+        <div class="row align-content-center">
+
             <div class="row cardContent" style="width: auto;" *ngFor="let favoriteComics of comics$; index as i">
 
                 <div class="card m-2 col-11 col-md-6 col-lg-3" style="width: 18rem;">
-                    <img src={{favoriteComics.thumbnail}} alt="{{favoriteComics.thumbnail}}"
-                        class="card-img-top imgCard">
+
                     <div class="card-body">
                         <h6 class="card-title">{{favoriteComics.title}}</h6>
                         <hr class="mt-3">
-                        
+
                     </div>
                     <div class="mb-5 d-flex">
                         <div class="m-2">
-                            <a href="{{favoriteComics.linkDetalhe}}" class=" btn btn-primary btn-sm" target="_blank">detalhes</a>
+                            <a href="{{favoriteComics.linkDetalhe}}" class=" btn btn-primary btn-sm"
+                                target="_blank">detalhes</a>
 
                         </div>
                         <div class="m-2">
-                            <button type="button" class="btn btn-danger btn-sm" (click)="delete(favoriteComics)">deletar</button>
+                            <button type="button" class="btn btn-danger btn-sm"
+                                (click)="delete(favoriteComics)">deletar</button>
 
                         </div>
-                      
+
 
                     </div>
-                   
+
                 </div>
             </div>
-        
+        </div>
+
+
     </section>
-
-
-
-
 
 </body>
 
 </html>
-

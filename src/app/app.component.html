@@ -16,41 +16,37 @@
 <header>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">
-            <img src="https://logospng.org/download/marvel/logo-marvel-256.png" width="100" height="70" alt="">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="comics">Comics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="characters">Characters</a>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://logospng.org/download/marvel/logo-marvel-256.png" width="100" height="70" alt="">
+            </a>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="comics">Comics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="characters">Characters</a>
 
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="favComics">Favorite Comics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="favComics">Favorite Comics</a>
 
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="favCharacters">Favorite Comics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="favCharacters">Favorite Characters</a>
 
-                </li>
-
-            </ul>
+                    </li>
+                </ol>
+            </nav>
         </div>
     </nav>
 </header>
 
 <body>
-
-
-
     <router-outlet></router-outlet>
+   
+    <div class="divHome"></div>
 </body>
 
 </html>

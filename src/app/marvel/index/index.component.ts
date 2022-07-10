@@ -3,6 +3,8 @@ import { Comics } from 'src/app/models/comics';
 import { MarvelApiService } from 'src/app/service/marvel-api.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { LaravelMarvelService } from 'src/app/service/laravel-marvel.service';
 
 
 @Component({
@@ -16,9 +18,14 @@ export class IndexComponent implements OnInit {
 public comics$: Observable<any> | undefined;
 
   //injeta serviço no componente
-  constructor(private http: HttpClient ) { }
+  constructor(private http: HttpClient, private LaravelService: LaravelMarvelService ) { }
 
   comicsArray = new Array<Comics>();
+  public name = new FormControl('');
+  public link = new FormControl('');
+  public thumbnail = new FormControl('');
+
+  comicObj?: any;
 
   ngOnInit(): void {
 
@@ -30,7 +37,20 @@ public comics$: Observable<any> | undefined;
 
   }
 
+  saveFavorite(link : String, thumbnail : String, name: String): void {
+
+    this.comicObj = { 
+     'title': name,
+     'thumbnail': thumbnail,
+     'linkDetalhe': link
+     
+    }
+    this.LaravelService.insertComic(this.comicObj as any).subscribe(comic=>{
+     this.comicObj = comic
+    })
  
+    console.log(this.comicObj)
+     };
 
 
 }
