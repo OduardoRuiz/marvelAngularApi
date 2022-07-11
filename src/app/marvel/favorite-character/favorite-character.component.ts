@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Characters } from 'src/app/models/characters';
 import { LaravelMarvelService } from 'src/app/service/laravel-marvel.service';
 
@@ -11,7 +12,7 @@ export class FavoriteCharacterComponent implements OnInit {
 
   public characters$ = <Characters[]>{};
 
-  constructor(private serviceLaravel: LaravelMarvelService) { }
+  constructor(private serviceLaravel: LaravelMarvelService, private router: Router) { }
 
   ngOnInit(): void {
     this.getListCharacters();
@@ -20,10 +21,14 @@ export class FavoriteCharacterComponent implements OnInit {
 
   getListCharacters(){ 
     this.serviceLaravel.listCharacters()
-      .subscribe(response=> this.characters$ = response)
+      .subscribe(response=> this.characters$ = response,
+      err => {
+        localStorage.removeItem('token');
+        this.router.navigate(['/login'])
+      })
   }
 
-  delete(character:Characters) { 
+  delete(character:Characters) {   
     this.serviceLaravel.deleteCharacter(character)
     .subscribe(Response => this.getListCharacters)
   }

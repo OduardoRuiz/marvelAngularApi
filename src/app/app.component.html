@@ -30,13 +30,29 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="favComics">Favorite Comics</a>
+                        <a class="nav-link" routerLink="favComics" *ngIf="loggedIn">Favorite Comics</a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="favCharacters">Favorite Characters</a>
+                        <a class="nav-link" routerLink="favCharacters" *ngIf="loggedIn">Favorite Characters</a>
 
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="login" *ngIf="!loggedIn">Login</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="register" *ngIf="!loggedIn">Register</a>
+
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/" *ngIf="loggedIn" (click)="logout()">Logout</a>
+                        
+
+                    </li>
+                    
+                  
                 </ol>
             </nav>
         </div>
@@ -45,7 +61,7 @@
 
 <body>
     <router-outlet></router-outlet>
-   
+
     <div class="divHome"></div>
 </body>
 

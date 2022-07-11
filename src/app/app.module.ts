@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CharactersComponent } from './marvel/characters/characters.component';
 import { FavoriteComicComponent } from './marvel/favorite-comic/favorite-comic.component';
 import { FavoriteCharacterComponent } from './marvel/favorite-character/favorite-character.component';
+import { LoginComponent } from './marvel/login/login.component';
+import { RegisterComponent } from './marvel/register/register.component';
 
 
 
@@ -20,7 +22,9 @@ import { FavoriteCharacterComponent } from './marvel/favorite-character/favorite
     IndexComponent,
     CharactersComponent,
     FavoriteComicComponent,
-    FavoriteCharacterComponent
+    FavoriteCharacterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

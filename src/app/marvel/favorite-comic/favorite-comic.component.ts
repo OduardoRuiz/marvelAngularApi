@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { Comics } from 'src/app/models/comics';
 import { LaravelMarvelService } from 'src/app/service/laravel-marvel.service';
 
@@ -11,23 +11,27 @@ import { LaravelMarvelService } from 'src/app/service/laravel-marvel.service';
 export class FavoriteComicComponent implements OnInit {
 
 
- public comics$ = <Comics[]>{};
+  public comics$ = <Comics[]>{};
 
 
-  constructor(private serviceLaravel: LaravelMarvelService) { }
+  constructor(private serviceLaravel: LaravelMarvelService, private router: Router) { }
 
   ngOnInit(): void {
     this.getListComics();
   }
 
-  getListComics(){ 
+  getListComics() {
     this.serviceLaravel.listCommics()
-      .subscribe(response=> this.comics$ = response)
+      .subscribe(response => this.comics$ = response,
+        err => {
+          localStorage.removeItem('token');
+          this.router.navigate(['/login'])
+        })
   }
 
-  delete(comic:Comics) { 
+  delete(comic: Comics) {
     this.serviceLaravel.deleteComic(comic)
-    .subscribe(Response => this.getListComics)
+      .subscribe(Response => this.getListComics)
   }
 
 }

@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { LaravelMarvelService } from './service/laravel-marvel.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'catalogoMarvel';
+  headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`
+  }
+
+  loggedIn = false;
+
+  ngOnInit(){ 
+
+    this.loggedIn = localStorage.getItem('token') !== null;
+  }
+
+  logout(){ 
+    localStorage.removeItem('token');
+  }
+
+
+
+
+
 }
