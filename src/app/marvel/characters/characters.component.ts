@@ -14,6 +14,15 @@ import { Router } from '@angular/router';
 export class CharactersComponent implements OnInit {
 
   title = "rest-marvel"
+   //Strings de conexão com a API 
+   public_key = "08b2b35d9dc9679f851d5ef889eb4822";
+   timestampApi = "1657156595"
+   hash = "a6a1e6477c9198769558d4cc0abb4c5d"; // Hash é o codigo MD5 do timestamp - private key e public key sequencialmente, para gerar acesse https://blueimp.github.io/JavaScript-MD5/
+   comicsOrCaracters = "characters"
+
+   
+ // String completa de conexão com a api, concatenada com as chaves 
+ URLConectionApi = `http://gateway.marvel.com/v1/public/${this.comicsOrCaracters}?ts=${this.timestampApi}&apikey=${this.public_key}&hash=${this.hash}`;
 
   public name = new FormControl('');
   public link = new FormControl('');
@@ -27,10 +36,10 @@ export class CharactersComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get("http://gateway.marvel.com/v1/public/characters?ts=1657569723670&apikey=08b2b35d9dc9679f851d5ef889eb4822&hash=04882f46ad595db783989126fe903444")
+    this.http.get(`${this.URLConectionApi}`)
       .subscribe(d => console.log(d))
 
-    this.characters$ = this.http.get("http://gateway.marvel.com/v1/public/characters?ts=1657569723670&apikey=08b2b35d9dc9679f851d5ef889eb4822&hash=04882f46ad595db783989126fe903444")
+    this.characters$ = this.http.get(`${this.URLConectionApi}`)
   }
 
   saveFavorite(link : String, thumbnail : String, name: String): void {
