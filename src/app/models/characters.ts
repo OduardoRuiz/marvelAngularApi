@@ -3,4 +3,6 @@ export interface Characters {
     name: string;
     thumbnail:  string;
     linkDetalhe: string;
+    user_id: string;
+
 }

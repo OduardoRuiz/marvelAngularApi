@@ -3,6 +3,8 @@ export interface Comics {
     title: string;
     thumbnail: string;
     linkDetalhe: string;
+    user_id: string;
+
 
 
 

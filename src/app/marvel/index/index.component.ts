@@ -34,6 +34,7 @@ export class IndexComponent implements OnInit {
   public link = new FormControl('');
   public thumbnail = new FormControl('');
 
+
   comicObj?: any;
 
   ngOnInit(): void {
@@ -52,7 +53,9 @@ export class IndexComponent implements OnInit {
     this.comicObj = {
       'title': name,
       'thumbnail': thumbnail,
-      'linkDetalhe': link
+      'linkDetalhe': link,
+      'user_id': `${localStorage.getItem("user")}`
+
 
     }
     this.LaravelService.insertComic(this.comicObj as any).subscribe(comic => {

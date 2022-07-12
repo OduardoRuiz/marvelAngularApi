@@ -9,6 +9,9 @@ import { LaravelMarvelService } from './service/laravel-marvel.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -23,6 +26,7 @@ export class AppComponent {
 
   logout(){ 
     localStorage.removeItem('token');
+
   }
 
 

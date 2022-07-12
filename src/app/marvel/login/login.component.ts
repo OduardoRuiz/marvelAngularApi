@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   info: undefined;
   elemento = "";
+  
 
 
   public emailLogin = new FormControl('');
@@ -52,6 +53,16 @@ export class LoginComponent implements OnInit {
     }).then(res => res.json())
       .then((data) => {
         localStorage.setItem('token', data.token);
+
+        this.setValueLocalStorage(data.user.id);
+        console.log([data])
+
       });
   };
+
+  setValueLocalStorage(userStore: string ){ 
+
+    localStorage.setItem('user', userStore);
+  }
+
 }

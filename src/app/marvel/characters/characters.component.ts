@@ -47,7 +47,11 @@ export class CharactersComponent implements OnInit {
    this.characterObj = { 
     'name': name,
     'thumbnail': thumbnail,
-    'linkDetalhe': link
+    'linkDetalhe': link,
+    'user_id': `${localStorage.getItem("user")}`
+
+
+    
     
    }
    this.LaravelService.insertCharacter(this.characterObj as any).subscribe(character=>{
