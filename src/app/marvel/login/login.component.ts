@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LaravelMarvelService } from 'src/app/service/laravel-marvel.service';
 
 @Component({
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
     'Authorization': `Bearer ${localStorage.getItem('token')}`
   }
 
-  constructor(private http: HttpClient, private LaravelService: LaravelMarvelService) { }
+  constructor(private http: HttpClient, private LaravelService: LaravelMarvelService, private router: Router) { }
 
 
   login(emailLogin: String, passwordLogin: String): void {
@@ -52,17 +53,24 @@ export class LoginComponent implements OnInit {
       'body': JSON.stringify(this.loginObj)
     }).then(res => res.json())
       .then((data) => {
-        localStorage.setItem('token', data.token);
 
-        this.setValueLocalStorage(data.user.id);
+        this.setValueLocalStorage(data.user.id, data.token);
+
         console.log([data])
+        this.router.navigate(['/comics'])
+
 
       });
   };
 
-  setValueLocalStorage(userStore: string ){ 
+  setValueLocalStorage(userStore: string , tokenStore: string){ 
 
     localStorage.setItem('user', userStore);
+    localStorage.setItem('token', tokenStore);
+    window.location.reload();
+
+
+
   }
 
 }

@@ -25,7 +25,16 @@ export class AppComponent {
   }
 
   logout(){ 
+
+    this.removeItensLocalStorage();
+  }
+
+  removeItensLocalStorage(){
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    window.location.reload();
+
+
 
   }
 
